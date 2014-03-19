@@ -1,0 +1,33 @@
+<form action="<?php echo $this->strInitUrl ?>" method="post" name="payment_form" id="payment_form" target="wirecard_frame">
+		<input type="hidden" name="FORM_SUBMIT" value="checkout" />
+		<input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}" />
+		<input type="hidden" name="customerId"          value="<?php echo $this->strAccount ?>" />
+		<input type="hidden" name="successURL"          value="<?php echo $this->strComplete ?>" />
+		<input type="hidden" name="failureURL"          value="<?php echo $this->strFailed ?>" />
+		<input type="hidden" name="cancelURL"           value="<?php echo $this->strCancel ?>" />
+		<input type="hidden" name="paymenttype"			value="SELECT"/>
+		<!-- <input type="hidden" name="confirmURL"          value="<?php echo $this->confirmURL ?>" /> -->
+		<input type="hidden" name="serviceURL"          value="<?php echo $this->strServiceUrl ?>" />
+		<!--<input type="hidden" name="imageURL"            value="<?php echo $this->imageURL ?>" />-->
+		<input type="hidden" name="amount"              value="<?php echo $this->strAmount ?>" />
+		<input type="hidden" name="currency"            value="<?php echo $this->strCurrency ?>" />
+		<input type="hidden" name="language"            value="<?php echo $this->strLanguage ?>" />
+		<input type="hidden" name="orderDescription"    value="<?php echo $this->strDescription ?>" />
+		<!--<input type="hidden" name="displayText"         value="<?php echo $this->displayText ?>" />-->
+		<!-- <input type="hidden" name="duplicateRequestCheck" value="<?php echo $this->duplicateRequestCheck ?>" /> -->
+		<!--<input type="hidden" name="customField1" value="<?php echo $this->customField1 ?>" />-->
+		<!--<input type="hidden" name="customField2" value="<?php echo $this->customField2 ?>" />-->
+		<input type="hidden" name="requestFingerprintOrder" value="<?php echo $this->requestFingerprintOrder ?>" />
+		<input type="hidden" name="requestfingerprint"      value="<?php echo $this->requestFingerprint ?>" />
+		<input type="hidden" name="cancelReturn"      value="<?php echo $this->cancelReturn ?>" />
+		<input type="hidden" name="failedReturn"      value="<?php echo $this->failedReturn ?>" />
+		<input type="hidden" name="completeReturn"      value="<?php echo $this->completeReturn ?>" />
+		<input type="hidden" name="windowName"		value="wirecard_frame"/>
+		<!--<input type="submit" value="Zahlung durchführen" />-->
+</form>
+<script>
+window.addEvent( 'domready' , function() {
+  $('payment_form').submit();
+});
+</script>
+<iframe style="width:650px;height:650px" name="wirecard_frame" frameborder="0"></iframe>
